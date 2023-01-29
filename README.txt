@@ -5,5 +5,8 @@
     1. tailwind.config.cjs
     2.  postcss.config.cjs
     3. style.css paste link and link sytle.css to login.html
+set up done for tailwind
 
+1. Login branch create 
+ to login we use developer spotify site we need accessToken to login and use endpoint of spotify  apis
 
