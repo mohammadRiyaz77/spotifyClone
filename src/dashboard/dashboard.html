@@ -1,102 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spotify Player</title>
-    <link rel="stylesheet" href="../style.css" />
-  </head>
 
-  <body class="bg-black text-primary h-screen">
-    <main
-      class="h-full grid grid-template-areas grid-cols-[250px_1fr] grid-rows-[1fr_auto]"
-    >
-      <aside class="sidenav">sidenav</aside>
-      <article class="content">
-        <header class="border-2 border-solid px-8 py-4">
-          <nav class="flex justify-end relative">
-            <button
-              id="user-profile-btn"
-              class="flex items-center gap-x-2 rounded-2xl p-1 px-2 hover:bg-light-black"
-            >
-              <section>
-                <svg
-                  id="default-image"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke-width="1.5"
-                  stroke="currentColor"
-                  class="w-8 h-8 bg-gray rounded-full"
-                >
-                  <path
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                </svg>
-              </section>
-              <section class="flex justify-center gap-x-1">
-                <h3 id="display-name"></h3>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 20 20"
-                  fill="currentColor"
-                  class="w-6 h-7"
-                >
-                  <path
-                    fill-rule="evenodd"
-                    d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
-                    clip-rule="evenodd"
-                  />
-                </svg>
-              </section>
-            </button>
-            <ul
-              id="profile-menu"
-              class="absolute hidden top-12 right-0 w-[200px] rounded-md bg-light-black p-1"
-            >
-              <li
-                id="logout"
-                class="hover:bg-gray w-full cursor-pointer rounded-md p-1"
-              >
-                Logout
-              </li>
-            </ul>
-          </nav>
-        </header>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spotify Player</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-        <article class="p-4">
-          <h1 class="text-2xl">Featured</h1>
-          <section
-            id="featured-playlist-itmes"
-            class="featured-songs grid grid-cols-auto-fill-cards gap-4"
-          >
-            <!-- <section class="rounded p-4 border-solid border-2 ">
-                  <img src="https://i.scdn.co/image/ab67706f00000003e7bd90431dd2a9e7181a29f1" alt="playlist-song-img"/>
-                  <h2 class="text-sm">Name</h2>
-                  <h3 class="text-xs ">Description</h3>
-              </section> -->
-          </section>
-        </article>
-        <article class="p-4">
-          <h1 class="text-2xl">Toplist</h1>
-          <section
-            id="top-playlist-itmes"
-            class="featured-songs grid grid-cols-auto-fill-cards gap-4"
-          >
-            <!-- <section class="rounded p-4 border-solid border-2 ">
-                <img src="https://i.scdn.co/image/ab67706f00000003e7bd90431dd2a9e7181a29f1" alt="playlist-song-img"/>
-                <h2 class="text-sm">Name</h2>
-                <h3 class="text-xs ">Description</h3>
-            </section> -->
-          </section>
-        </article>
+<body class="bg-black text-primary h-screen">
+  <main class="h-full grid grid-template-areas grid-cols-[250px_1fr] grid-rows-[1fr_auto]">
+    <aside class="sidenav">sidenav</aside>
+    <article class="content bg-transparent overflow-auto relative">
+      <header class="header  px-8 py-4 bg-transparent">
+        <nav class="flex justify-end relative">
+          <button id="user-profile-btn" class="flex items-center gap-x-2 rounded-2xl p-1 px-2 hover:bg-light-black">
+            <section>
+              <svg id="default-image" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="1.5" stroke="currentColor" class="w-8 h-8 bg-gray rounded-full">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </section>
+            <section class="flex justify-center gap-x-1">
+              <h3 id="display-name"></h3>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="w-6 h-7">
+                <path fill-rule="evenodd"
+                  d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z"
+                  clip-rule="evenodd" />
+              </svg>
+            </section>
+          </button>
+          <ul id="profile-menu" class="absolute hidden top-12 right-0 w-[200px] rounded-md bg-light-black p-1">
+            <li id="logout" class="hover:bg-gray w-full cursor-pointer rounded-md p-1">
+              Logout
+            </li>
+          </ul>
+        </nav>
+      </header>
+      <article id="cover-content" class="grid content-center  absolute top-0 px-4 bg-gradient-to-b from-light-black to-bg-black-base w-full h-72 -z-[1]" >
+        <h1 class="text-6xl">Hello ,Riyaz</h1>
       </article>
-      <footer class="now-playing">now playing</footer>
-    </main>
+      <section id="page-content" class="mt-48 "></section>
 
-    <script type="module" src="dashboard.js"></script>
-  </body>
+    </article>
+    <footer class="now-playing">now playing</footer>
+  </main>
+
+  <script type="module" src="dashboard.js"></script>
+</body>
+
 </html>

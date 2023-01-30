@@ -7,7 +7,8 @@ const APP_URL = import.meta.env.VITE_APP_URL;
 export const ENDPOINT= {
     userInfo:"me",
     featuredPlaylist : "browse/featured-playlists",
-    toplists:"browse/categories/toplists/playlists"
+    toplists:"browse/categories/toplists/playlists",
+    playlist:"playlists"
 
 }
 
@@ -18,4 +19,9 @@ export const logout = ()=>{
     localStorage.removeItem(EXPIRES_IN);
     localStorage.removeItem(TOKEN_TYPE);
     window.location.href = APP_URL;
+}
+
+export const SECTIONTYPE = {
+    DASHBOARD:"DASHBOARD",
+    PLAYLIST:"PLAYLIST"
 }
